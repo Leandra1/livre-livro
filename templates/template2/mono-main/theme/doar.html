@@ -1,0 +1,34 @@
+{% extends 'templates/template2/mono-main/theme/layout.html' %}
+{% block card %}Doar Livro{% endblock %}
+{% block title %}Doar | Livre-Livro{% endblock %}
+{% block conteudo %}
+<form>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Títilo do livro</label>
+        <textarea class="form-control"  rows="1"></textarea>
+      </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Autor do livro</label>
+        <textarea class="form-control"  rows="1"></textarea>
+      </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Estado de conservação</label>
+        <textarea class="form-control"  rows="1"></textarea>
+      </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Descrição do livro</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <!-- <div class="form-group">
+      <label for="exampleFormControlFile1">Selecione uma imagem do livro</label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div> -->
+    <div class="form-footer mt-6">
+      <button type="submit" class="btn btn-primary btn-pill">Enviar</button>
+      <button type="submit" class="btn btn-light btn-pill">Cancelar</button>
+    </div>
+  </form>
+  
+  
+
+{% endblock %}

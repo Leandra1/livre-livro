@@ -1,0 +1,39 @@
+{% extends 'templates/template2/mono-main/theme/layout.html' %}
+{% block card %}Livros Disponíveis {% endblock %}
+{% block title %}Livros | Livre-Livro{% endblock %}
+{% block conteudo %}
+{% load static %}
+<div class="row">
+    <div class="col-lg-6 col-xl-3">
+      <div class="card mb-4">
+        <img class="card-img-top" src="{% static 'template2/theme/images/elements/cc1.jpg' %}">
+        <div class="card-body">
+          <h5 class="card-title ">Card Title</h5>
+          <p class="card-text pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor </p>
+          <a href="#" class="btn btn-outline-primary btn-pill">Quero</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-xl-3">
+        <div class="card mb-4">
+          <img class="card-img-top" src="{% static 'template2/theme/images/elements/cc1.jpg' %}">
+          <div class="card-body">
+            <h5 class="card-title ">Card Title</h5>
+            <p class="card-text pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor </p>
+            <a href="#" class="btn btn-outline-primary btn-pill">Quero</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xl-3">
+        <div class="card mb-4">
+          <img class="card-img-top" src="{% static 'template2/theme/images/elements/cc1.jpg' %}">
+          <div class="card-body">
+            <h5 class="card-title ">Card Title</h5>
+            <p class="card-text pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor </p>
+            <a href="#" class="btn btn-outline-primary btn-pill">Quero</a>
+          </div>
+        </div>
+      </div>
+</div>
+
+{% endblock %}
