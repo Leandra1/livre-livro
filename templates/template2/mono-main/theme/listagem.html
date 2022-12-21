@@ -25,16 +25,16 @@
                    <td>{{ i.estado }}</td>
                     <td>
                       <div class="dropdown">
-                        <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                         </a>
-
+          
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="#">Ver</a>
-                          <a class="dropdown-item" href="#">Quero</a>
+                          <a class="dropdown-item" href="{% url 'url_livros' %}">Ver</a>
+                          <a class="dropdown-item" href="{% url 'url_livros' %}">Quero</a>
                         </div>
                       </div>
-                    </td></td>
+                      
+                    </td>
                     {% endfor %}
                                             
                     </tr>

@@ -1,39 +1,44 @@
 {% extends 'templates/template2/mono-main/theme/layout.html' %}
-{% block card %}Livros Disponíveis {% endblock %}
-{% block title %}Livros | Livre-Livro{% endblock %}
+{% block card %}Meus Livros {% endblock %}
+{% block title %}Meus Livros | Livre-Livro{% endblock %}
 {% block conteudo %}
 {% load static %}
-<div class="row">
-    <div class="col-lg-6 col-xl-3">
-      <div class="card mb-4">
-        <img class="card-img-top" src="{% static 'template2/theme/images/elements/cc1.jpg' %}">
-        <div class="card-body">
-          <h5 class="card-title ">Card Title</h5>
-          <p class="card-text pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor </p>
-          <a href="#" class="btn btn-outline-primary btn-pill">Quero</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-xl-3">
-        <div class="card mb-4">
-          <img class="card-img-top" src="{% static 'template2/theme/images/elements/cc1.jpg' %}">
-          <div class="card-body">
-            <h5 class="card-title ">Card Title</h5>
-            <p class="card-text pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor </p>
-            <a href="#" class="btn btn-outline-primary btn-pill">Quero</a>
+
+<table id="productsTable" class="table table-hover" style="width:100%">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>Gênero</th>
+      <th>Sinopse</th>
+      <th>Estado</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in livros %} 
+     <tr>
+     <td>{{ i.titulo }}</td>
+     <td>{{ i.autor }}</td>
+     <td>{{ i.genero }}</td>
+     <td>{{ i.sinopse }}</td>
+     <td>{{ i.estado }}</td>
+      <td>
+        <div class="dropdown">
+          <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Ver</a>
+            <a class="dropdown-item" href="#">Quero</a>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6 col-xl-3">
-        <div class="card mb-4">
-          <img class="card-img-top" src="{% static 'template2/theme/images/elements/cc1.jpg' %}">
-          <div class="card-body">
-            <h5 class="card-title ">Card Title</h5>
-            <p class="card-text pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor </p>
-            <a href="#" class="btn btn-outline-primary btn-pill">Quero</a>
-          </div>
-        </div>
-      </div>
-</div>
+      </td></td>
+      {% endfor %}
+                              
+      </tr>
+  </tbody>
+</table>
 
 {% endblock %}

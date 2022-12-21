@@ -51,6 +51,10 @@ def livros(request):
 def layout(request):
     return render(request, "templates/template2/mono-main/theme/layout.html")
 
+
+def livros(request):
+    return render(request, "templates/template2/mono-main/theme/livros.html")
+
 def doar(request):
     # if request.method == "POST":
         formLivro = LivroForm(request.POST or None)
