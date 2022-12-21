@@ -6,7 +6,7 @@ from livro.models import *
 
 class LivroForm(ModelForm):
     class Meta:
-        model = livros
+        model = Livros
         fields = ['titulo', 'sinopse','estado','genero',  'autor' ]
         labels = {
             "titulo": "Titulo:",
