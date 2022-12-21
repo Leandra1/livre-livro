@@ -7,7 +7,6 @@ urlpatterns = [
     path('',index, name="url_index"),
     path('login/',login, name="url_login"),
     path('cadastre-se/',cadastro, name="url_cadastro"),
-    path('inicio/',inicio, name="url_inicio"),
     path('livre-livro/',layout, name= "url_layout"),
     path('doar/',doar,name= "url_doar"),
     path('livros/',livros,name= "url_livros"),

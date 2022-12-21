@@ -2,31 +2,35 @@
 {% block card %}Doar Livro{% endblock %}
 {% block title %}Doar | Livre-Livro{% endblock %}
 {% block conteudo %}
-<form>
+{% load widget_tweaks %}
+<form method="POST">
+  {% csrf_token %}
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Títilo do livro</label>
-        <textarea class="form-control"  rows="1"></textarea>
+        <label for="exampleFormControlTextarea1">Título</label>
+       {% render_field formLivro.titulo class+='form-control' placeholder+='Digite Aqui' %}
       </div>
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Autor do livro</label>
-        <textarea class="form-control"  rows="1"></textarea>
+        <label for="exampleFormControlTextarea1">Autor</label>
+        {% render_field formLivro.autor class+='form-control' placeholder+='Digite Aqui' %}
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Gênero</label>
+        {% render_field formLivro.genero class+='form-control' placeholder+='Digite Aqui' %}
       </div>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Estado de conservação</label>
-        <textarea class="form-control"  rows="1"></textarea>
+        {% render_field formLivro.estado class+='form-control' placeholder+='Digite Aqui' %}
       </div>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Sinopse do livro</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <label for="exampleFormControlTextarea1">Sinopse</label>
+      {% render_field formLivro.sinopse class+='form-control' placeholder+='Digite Aqui' %}
     </div>
-    <!-- <div class="form-group">
-      <label for="exampleFormControlFile1">Selecione uma imagem do livro</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1">
-    </div> -->
+    
     <div class="form-footer mt-6">
       <button type="submit" class="btn btn-primary btn-pill">Enviar</button>
-      <button type="submit" class="btn btn-light btn-pill">Cancelar</button>
+      
     </div>
+   
   </form>
   
   

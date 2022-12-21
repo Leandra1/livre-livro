@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from livro.models import * 
+from livro.forms import *
 
 
 def index(request):
@@ -46,16 +48,27 @@ def livros(request):
 
 
 
-def inicio(request):
-    return render(request, "templates/template2/mono-main/theme/inicio.html")
 def layout(request):
     return render(request, "templates/template2/mono-main/theme/layout.html")
 def doar(request):
-    return render(request, "templates/template2/mono-main/theme/doar.html")
+    # if request.method == "POST":
+        formLivro = LivroForm(request.POST or None)
+        if  formLivro.is_valid() :
+            doacao = livros.objects.create(
+                    titulo =  formLivro.cleaned_data["titulo"],
+                    sinopse =  formLivro.cleaned_data["sinopse"],
+                    genero =  formLivro.cleaned_data["genero"],
+                    autor =  formLivro.cleaned_data["autor"],
+                    estado =  formLivro.cleaned_data["estado"],
+                )
+            doacao.save()
+            return redirect("/listagem")
 
-
-    
-
+        pacote = {"formLivro": formLivro}
+        return render(request, "templates/template2/mono-main/theme/doar.html", pacote)
 
 def listagem(request):
-    return render(request, "templates/template2/mono-main/theme/listagem.html")
+    doado = livros.objects.all().order_by('titulo')
+    pacote = {"livros": doado}
+    return render(request,"templates/template2/mono-main/theme/listagem.html", pacote)
+ 
