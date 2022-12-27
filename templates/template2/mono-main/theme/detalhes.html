@@ -1,0 +1,20 @@
+{% extends 'templates/template2/mono-main/theme/layout.html' %}
+{% block card %} Detalhamento{% endblock %}
+{% block title %}Receber livro | Livre-Livro{% endblock %}
+{% block conteudo %}
+{% load static %}
+<div class="row">
+  <div class="card w-75 mb-5">
+    <div class="card-body">
+      <h5 class="card-title">{{ livros.titulo }}</h5>
+      <h5 class="card-title">{{ livros.sinopse }}</h5>
+      <h5 class="card-title">{{ livros.autor }}</h5>
+
+      <p class="card-text pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut
+        aliquip.</p>
+      <a href="#" class="btn btn-outline-primary btn-pill">Quero</a>
+    </div>
+  </div>
+{% endblock %}
+  

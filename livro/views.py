@@ -11,6 +11,14 @@ from livro.forms import *
 def index(request):
     return render(request, "templates/template1/index.html")
 
+def search(request):
+    results =[]
+    if request.method =="GET":
+        lili = Livros.objects.all()
+        query = request.GET.get('site_search')
+        results = lili.filter(titulo__icontains=query)
+    return render(request, 'templates/template2/mono-main/theme/busca.html', {'query':query, 'results': results})
+
 def cadastro(request):
     if request.method== "GET":
         return render(request, "templates/template2/mono-main/theme/cadastro.html")
@@ -55,6 +63,8 @@ def layout(request):
 def livros(request):
     return render(request, "templates/template2/mono-main/theme/livros.html")
 
+def detalhes(request):
+    return render(request, "templates/template2/mono-main/theme/detalhes.html")
 def doar(request):
     # if request.method == "POST":
         formLivro = LivroForm(request.POST or None)

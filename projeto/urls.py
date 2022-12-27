@@ -11,6 +11,8 @@ urlpatterns = [
     path('doar/',doar,name= "url_doar"),
     path('livros/',livros,name= "url_livros"),
     path('listagem/',listagem,name= "url_listagem"),
+    path('busca/',search,name= "url_search"),
+    path('receber/',detalhes,name= "url_detalhes"),
 
 
 
