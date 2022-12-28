@@ -9,7 +9,7 @@ from livro.forms import *
 
 
 def index(request):
-    return render(request, "templates/template1/index.html")
+    return render(request, "template1/index.html")
 
 def search(request):
     results =[]
@@ -17,11 +17,11 @@ def search(request):
         lili = Livros.objects.all()
         query = request.GET.get('site_search')
         results = lili.filter(titulo__icontains=query)
-    return render(request, 'templates/template2/mono-main/theme/busca.html', {'query':query, 'results': results})
+    return render(request, 'template2/mono-main/theme/busca.html', {'query':query, 'results': results})
 
 def cadastro(request):
     if request.method== "GET":
-        return render(request, "templates/template2/mono-main/theme/cadastro.html")
+        return render(request, "template2/mono-main/theme/cadastro.html")
     else:
        name = request.POST.get('name') 
        email = request.POST.get('email') 
@@ -30,18 +30,7 @@ def cadastro(request):
       
     user = User.objects.create_user(username=name, email=email, password=password)
 
-    return redirect("/login")
-
-      
-def login(request):
-    if request.method =="GET":
-        return render(request, "templates/template2/mono-main/theme/login.html")
-    else:
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-
-        user = authenticate(email=email, password=password)
-
+    return redirect("/account/login")
 
 def logout_views(request):
     if request.user.is_authenticated:
@@ -52,19 +41,19 @@ def logout_views(request):
 
 @login_required(login_url="/login/")
 def livros(request):
-        return render(request, "templates/template2/mono-main/theme/livros.html")
+        return render(request, "template2/mono-main/theme/livros.html")
 
 
 
 def layout(request):
-    return render(request, "templates/template2/mono-main/theme/layout.html")
+    return render(request, "template2/mono-main/theme/layout.html")
 
 
 def livros(request):
-    return render(request, "templates/template2/mono-main/theme/livros.html")
+    return render(request, "template2/mono-main/theme/livros.html")
 
 def detalhes(request):
-    return render(request, "templates/template2/mono-main/theme/detalhes.html")
+    return render(request, "template2/mono-main/theme/detalhes.html")
 def doar(request):
     # if request.method == "POST":
         formLivro = LivroForm(request.POST or None)
@@ -80,10 +69,10 @@ def doar(request):
             return redirect("/listagem")
 
         pacote = {"formLivro": formLivro}
-        return render(request, "templates/template2/mono-main/theme/doar.html", pacote)
+        return render(request, "template2/mono-main/theme/doar.html", pacote)
 
 def listagem(request):
     doado = Livros.objects.all().order_by('titulo')
     pacote = {"livros": doado}
-    return render(request,"templates/template2/mono-main/theme/listagem.html", pacote)
+    return render(request,"template2/mono-main/theme/listagem.html", pacote)
  

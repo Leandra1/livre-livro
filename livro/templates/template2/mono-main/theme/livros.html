@@ -1,6 +1,6 @@
-{% extends 'templates/template2/mono-main/theme/layout.html' %}
-{% block card %} Livros disponíveis{% endblock %}
-{% block title %}Livros | Livre-Livro{% endblock %}
+{% extends 'template2/mono-main/theme/layout.html' %}
+{% block card %} Meus livros{% endblock %}
+{% block title %}Meus livros | Livre-Livro{% endblock %}
 {% block conteudo %}
 {% load static %}
   
@@ -29,7 +29,8 @@
                         </a>
           
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="{% url 'url_detalhes' %}">receber</a>
+                          <a class="dropdown-item" href="{% url 'url_livros' %}">Ver</a>
+                          <a class="dropdown-item" href="{% url 'url_livros' %}">Quero</a>
                         </div>
                       </div>
                       

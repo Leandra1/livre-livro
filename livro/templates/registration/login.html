@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 
 <!--
@@ -65,38 +66,16 @@
 
                     <h4 class="text-dark mb-6 text-center">Faça login</h4>
 
-                    <form action="{% url 'url_layout' %}">
-                      <div class="row">
-                        <div class="form-group col-md-12 mb-4">
-                          <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp"
-                            placeholder="Email">
-                        </div>
-                        <div class="form-group col-md-12 ">
-                          <input type="password" class="form-control input-lg" id="password" placeholder="Senha">
-                        </div>
-                        
-                        <!-- 
-                        <div class="col-md-12">
+                    <form action="." method="post">
+                      {% csrf_token %}
+                        {{ form|crispy }}
 
-                          <div class="d-flex justify-content-between mb-3">
-
-                            <div class="custom-control custom-checkbox mr-3 mb-3">
-                              <input type="checkbox" class="custom-control-input" id="customCheck2">
-                              <label class="custom-control-label" for="customCheck2">Lembre-se</label>
-                            </div>
-
-                            <a class="text-color" href="#"> Esqueceu sua senha? </a>
-
-                          </div>
-                        -->
                         
                           <button type="submit" class="btn btn-primary btn-pill mb-4">Entrar</button>
 
                           <p>Não possui uma conta?
                             <a class="text-blue" href="{% url 'url_cadastro' %}">Cadastre-se</a>
                           </p>
-                        </div>
-                      </div>
                     </form>
                   </div>
                 </div>

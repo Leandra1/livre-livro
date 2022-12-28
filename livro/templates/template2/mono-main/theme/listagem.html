@@ -1,11 +1,8 @@
-{% extends 'templates/template2/mono-main/theme/layout.html' %}
-{% block card %} Resultados encontrados{% endblock %}
+{% extends 'template2/mono-main/theme/layout.html' %}
+{% block card %} Livros disponíveis{% endblock %}
 {% block title %}Livros | Livre-Livro{% endblock %}
 {% block conteudo %}
 {% load static %}
-
-        {% if query %}
-        {% if results %}
   
               <table id="productsTable" class="table table-hover" style="width:100%">
                 <thead>
@@ -19,7 +16,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for i in results %} 
+                  {% for i in livros %} 
                    <tr>
                    <td>{{ i.titulo }}</td>
                    <td>{{ i.autor }}</td>
@@ -32,8 +29,7 @@
                         </a>
           
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="{% url 'url_livros' %}">Ver</a>
-                          <a class="dropdown-item" href="{% url 'url_livros' %}">Quero</a>
+                          <a class="dropdown-item" href="{% url 'url_detalhes' %}">receber</a>
                         </div>
                       </div>
                       
@@ -43,8 +39,4 @@
                     </tr>
                 </tbody>
               </table>
-              {% else %}
-              <h4> Sem registros </h4>
-        {% endif %}
-        {% endif %}
 {% endblock %}

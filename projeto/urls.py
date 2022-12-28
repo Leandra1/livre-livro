@@ -1,11 +1,11 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from livro.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index, name="url_index"),
-    path('login/',login, name="url_login"),
+    path('account/', include('django.contrib.auth.urls')),
     path('cadastre-se/',cadastro, name="url_cadastro"),
     path('livre-livro/',layout, name= "url_layout"),
     path('doar/',doar,name= "url_doar"),
