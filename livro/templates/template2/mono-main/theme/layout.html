@@ -100,7 +100,7 @@
                 >
                  <a class="sidenav-item-link" href="{% url 'url_layout' %}">
                    <i class="mdi mdi-account-circle"></i>
-                   <span class="nav-text">Usuario</span>
+                   <span class="nav-text">{{ request.user }}</span>
                  </a>
                </li>
                 
@@ -123,14 +123,6 @@
                       <span class="nav-text">Listagem</span>
                     </a>
                   </li>
-                  
-                  <li
-                   >
-                    <a class="sidenav-item-link" href="{% url 'url_livros' %}">
-                      <i class="mdi mdi-playlist-check"></i>
-                      <span class="nav-text">Meus livros</span>
-                    </a>
-                  </li>
                   <li
                    >
                     <a class="sidenav-item-link" href="{% url 'logout' %}">
@@ -145,18 +137,6 @@
               </ul>
 
             </div>
-<!-- 
-            <div class="sidebar-footer">
-              <div class="sidebar-footer-content">
-                <ul class="d-flex">
-                  <li>
-                    <a href="user-account-settings.html" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
-                  <li>
-                    <a href="#" data-toggle="tooltip" title="No chat messages"><i class="mdi mdi-chat-processing"></i></a>
-                  </li>
-                </ul>
-              </div>
-            </div> -->
           </div>
         </aside>
 
@@ -214,8 +194,8 @@
                     <div class="card mb-4">
                       <img class="card-img-top" src="{% static 'template2/theme/images/elements/cc1.jpg' %}">
                       <div class="card-body">
-                        <h5 class="card-title ">Card Title</h5>
-                        <p class="card-text pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor </p>
+                        <h5 class="card-title ">Faça uma doação</h5>
+                        <p class="card-text pb-3"></p>
                         <a href="{% url 'url_doar' %}" class="btn btn-outline-primary btn-pill">Doar</a>
                       </div>
                     </div>
@@ -224,8 +204,8 @@
                     <div class="card mb-4">
                       <img class="card-img-top" src="{% static 'template2/theme/images/elements/cc1.jpg' %}">
                       <div class="card-body">
-                        <h5 class="card-title ">Card Title</h5>
-                        <p class="card-text pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor </p>
+                        <h5 class="card-title ">Veja os livros disponíveis</h5>
+                        <p class="card-text pb-3"></p>
                         <a href="{% url 'url_listagem' %}" class="btn btn-outline-primary btn-pill">Receber</a>
                       </div>
                     </div>
@@ -327,3 +307,4 @@
 
   </body>
 </html>
+

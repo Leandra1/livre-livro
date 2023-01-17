@@ -46,14 +46,13 @@ def livros(request):
 
 
 def layout(request):
+    
     return render(request, "template2/mono-main/theme/layout.html")
+   
 
+def error(request):
+    return render(request, "template2/mono-main/theme/404.html")
 
-def livros(request):
-    return render(request, "template2/mono-main/theme/livros.html")
-
-def detalhes(request):
-    return render(request, "template2/mono-main/theme/detalhes.html")
 def doar(request):
     # if request.method == "POST":
         formLivro = LivroForm(request.POST or None)
@@ -64,6 +63,8 @@ def doar(request):
                     genero =  formLivro.cleaned_data["genero"],
                     autor =  formLivro.cleaned_data["autor"],
                     estado =  formLivro.cleaned_data["estado"],
+                    contato =  formLivro.cleaned_data["contato"],
+                    doador_id = User.objects.get(pk=request.user.id),
                 )
             doacao.save()
             return redirect("/listagem")
@@ -72,7 +73,13 @@ def doar(request):
         return render(request, "template2/mono-main/theme/doar.html", pacote)
 
 def listagem(request):
-    doado = Livros.objects.all().order_by('titulo')
-    pacote = {"livros": doado}
-    return render(request,"template2/mono-main/theme/listagem.html", pacote)
- 
+    if request.user.is_authenticated:
+            doado = Livros.objects.all().order_by('titulo')
+            pacote = {"livros": doado}
+            return render(request,"template2/mono-main/theme/listagem.html", pacote)
+
+def delete(request, id):
+    if request.user.is_authenticated:
+            produto = Livros.objects.get(pk=id)
+            produto.delete()
+            return redirect("/listagem")
