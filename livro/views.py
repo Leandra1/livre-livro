@@ -54,7 +54,7 @@ def error(request):
     return render(request, "template2/mono-main/theme/404.html")
 
 def doar(request):
-    # if request.method == "POST":
+    if request.user.is_authenticated:
         formLivro = LivroForm(request.POST or None)
         if  formLivro.is_valid() :
             doacao = Livros.objects.create(
